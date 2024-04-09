@@ -1,0 +1,5 @@
+dotnet new mvc -o GalloFlix
+
+dotnet new sln --name GalloFlix
+
+dotnet sln add GalloFlix\GalloFlix.csproj
