@@ -4,4 +4,31 @@ dotnet new sln --name GalloFlix
 
 dotnet sln add GalloFlix\GalloFlix.csproj
 
+Abrir o NugetGallery (Shift + Ctrl + P):
+    - Pesquisar e Instalar:
+        EntityFrameworkCore
+        EntityFrameworkCore.Design
+        EntityFrameworkCore.Tools
+        Pomelo.EntityFrameworkCore.MySql
+
+Criar as classes de dados - Pasta Models
+
+Criar a pasta Data e a classe AppDbContext
+
+Criar a ConnectionString no arquivo appsettings.json
+
+Criar o serviço de conexão no arquivo Program.cs
+
+dotnet tool install -g dotnet-aspnet-codegenerator --version 8.0.1
+
+Pacotes para CRUD
+    Microsoft.VisualStudio.Web.CodeGeneration.Design
+    Microsoft.EntityFrameworkCore.SqlServer
+
+Criar um controller CRUD - CREATE READ UPDATE DELETE
+dotnet-aspnet-codegenerator controller -name GenresController -m Genre -dc AppDbContext -outDir Controllers -udl 
+
+
+
+
 dotnet tool install --global dotnet-ef --version 8.0.4
