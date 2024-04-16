@@ -46,4 +46,6 @@ public class Movie
         return TimeSpan.FromMinutes(Duration).ToString(@"%h'h 'mm'min'");
     } }
 
+    public ICollection<MovieGenre> Genres { get; set; }
+
 }

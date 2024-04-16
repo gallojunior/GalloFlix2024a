@@ -7,7 +7,7 @@ namespace GalloFlix.Models;
 public class MovieGenre
 {
     [Key, Column(Order = 1)]
-    public int MovieId { get; set; }
+    public uint MovieId { get; set; }
     [ForeignKey("MovieId")]
     public Movie Movie { get; set; }
 
