@@ -3,3 +3,5 @@ dotnet new mvc -o GalloFlix
 dotnet new sln --name GalloFlix
 
 dotnet sln add GalloFlix\GalloFlix.csproj
+
+dotnet tool install --global dotnet-ef --version 8.0.4
