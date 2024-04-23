@@ -28,6 +28,11 @@ Pacotes para CRUD
 Criar um controller CRUD - CREATE READ UPDATE DELETE
 dotnet-aspnet-codegenerator controller -name GenresController -m Genre -dc AppDbContext -outDir Controllers -udl 
 
+dotnet-aspnet-codegenerator controller -name MoviesController -m Movie -dc AppDbContext -outDir Controllers -udl 
+
+
+
+
 
 
 
