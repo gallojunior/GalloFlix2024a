@@ -2,6 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using GalloFlix.Models;
 using GalloFlix.Data;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace GalloFlix.Controllers;
@@ -19,7 +20,10 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        List<Movie> movies = _context.Movies.ToList();
+        List<Movie> movies = _context.Movies
+            .Include(m => m.Genres)
+            .ThenInclude(mv => mv.Genre)
+            .ToList();
         return View(movies);
     }
 
