@@ -35,7 +35,8 @@ Abrir o NugetGallery (Shift + Ctrl + P):
         AspNetCore.Identity.EntityFrameworkCore
 
 
-
-
-
 dotnet tool install --global dotnet-ef --version 8.0.4
+
+dotnet ef migrations add InitialCreate
+
+dotnet ef database update
