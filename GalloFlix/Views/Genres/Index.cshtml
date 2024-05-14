@@ -4,32 +4,72 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h1>Index</h1>
+<div class="row">
+    <div class="col-12">
+        <div class="card my-4">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                <div
+                    class="bg-gradient-warning shadow-primary border-radius-lg py-4 d-flex justify-content-between align-items-center">
+                    <h5 class="text-white text-capitalize m-0 ps-3">@ViewData["Title"]</h5>
+                    <a class="text-white text-capitalize ps-3 align-items-center d-flex me-4" asp-action="Create">
+                        <i class="material-icons opacity-10 me-2">add</i> Adicionar
+                    </a>
+                </div>
+            </div>
+            <div class="card-body pb-2">
+                <div class="table-responsive p-0">
+                    <table id='DataTable' class="table table-striped align-items-center mb-0 w-100">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
+                                    @Html.DisplayNameFor(model => model.Name)
+                                </th>
+                                <th
+                                    class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
+                                    Ações
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="text-dark text-sm ps-4">
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <a asp-action="Edit" asp-route-id="@item.Id" title="Alterar">
+                                            <i class="material-icons">edit</i>
+                                        </a>
+                                        <a asp-action="Details" asp-route-id="@item.Id" title="Detalhes">
+                                            <i class="material-icons">search</i>
+                                        </a>
+                                        <a asp-action="Delete" asp-route-id="@item.Id" title="Excluir">
+                                            <i class="material-icons">delete</i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+@section Scripts {
+    <script>
+        let datatable = new DataTable('#DataTable', {
+            language: {
+                url: '../../lib/datatables/lang/pt-BR.json'
+            },
+            initComplete: function (settings, json) {
+                document.querySelector('.dt-length').classList.add('text-xs');
+                document.querySelector('.dt-search').classList.add('text-xs');
+                document.querySelector('.dt-info').classList.add('text-xs');
+                document.querySelector('.dt-paging').classList.add('text-xs');
+            }
+        });
+    </script>
 }
-    </tbody>
-</table>
