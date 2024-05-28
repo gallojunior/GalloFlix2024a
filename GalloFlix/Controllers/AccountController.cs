@@ -79,6 +79,13 @@ public class AccountController : Controller
     }
 
 
+    [HttpGet]
+    public IActionResult Register()
+    {
+        return View();
+    }
+
+
     public IActionResult AccessDenied()
     {
         return View();
